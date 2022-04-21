@@ -2,6 +2,7 @@
 let num1 = '';
 let num2 = 0;
 let result = 0;
+let aCounter = false;
 console.log('num2 = '+num2+' '+'result = '+result);
 var limit = 0;
 
@@ -34,6 +35,7 @@ const StacktoHoldNumbers = new Stack();
 const StacktoHoldAos = new Stack();
 function calculateBtnPressed(ArithmeticSign)
 {
+    console.log(num1);
     num2 = parseInt(document.getElementById('txtscreen').value);
     document.getElementById('txtscreen').textContent = '';
     if(StacktoHoldNumbers.isEmpty())
@@ -49,13 +51,13 @@ function calculateBtnPressed(ArithmeticSign)
             document.getElementById('txtscreen').textContent = result;
 
         else if(tempcharholder ==='+')
-            {result = result+num2;console.log('plus btn pressed');}
+            {result = result+num2;}
 
         else if(tempcharholder ==='-')
-            {result = result - num2;console.log('plus btn pressed');}
+            {result = result - num2;}
 
         else if(tempcharholder ==='/')
-            {result = result/num2;console.log('plus btn pressed');}
+            {result = result/num2;}
 
         else if(tempcharholder === '*')
             result = result*num2;
@@ -66,36 +68,43 @@ function calculateBtnPressed(ArithmeticSign)
         console.log(result);
     }
     num1 = '';
+    aCounter = 'false';
 }
 
 
 function displayOnScreen(number)
 {
+    aCounter = true;
     num1=num1+number;
     document.getElementById('txtscreen').textContent = num1;
-
 }
 
 function numberEqual()
 {
-    calculateBtnPressed('=');
+    // if(aCounter === false)
+        calculateBtnPressed('=');
+        aCounter = true;
 }
 function numberDiv()
 {
-    calculateBtnPressed('/');
+    if(aCounter === true)
+        calculateBtnPressed('/');
 }
 function numberMulti()
 {
-    calculateBtnPressed('*');
+    if(aCounter === true)
+        calculateBtnPressed('*');
 }
 function numberMinus()
 {
-    calculateBtnPressed('-');
+    if(aCounter === true)
+        calculateBtnPressed('-');
 }
 
 function numberPlus()
 {
-    calculateBtnPressed('+');
+    if(aCounter === true)
+        calculateBtnPressed('+');
 }
 
 
@@ -146,4 +155,14 @@ function numberNine()
 function numberZero()
 {
     displayOnScreen(0);
+}
+
+function clrBtn(){
+    document.getElementById('txtscreen').textContent = '';
+    num1 = '';
+}
+
+function ACBtn()
+{
+    window.location.reload(true);
 }

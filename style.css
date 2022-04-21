@@ -18,8 +18,12 @@ h1{
 .calculator-making{
     display: flex;
     flex-direction: column;
-    
-    
+}
+
+.calc-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .calc-body
@@ -42,4 +46,20 @@ h1{
 }
 .thirdrow{
     padding: 5px;
+}
+
+.clrBtn{
+    background-color: rgb(20, 255, 3);
+    flex-grow: 4;
+}
+.ACbtn{
+    background-color: rgb(255, 0, 0);
+    flex-grow: 6;
+}
+
+
+.clrBtnAcBtn{
+    display: flex;
+    justify-content: center;
+    
 }
